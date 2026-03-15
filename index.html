@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Sudipta & Sananda's Wedding Gallery</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+
+  <body>
+    <section class="cover">
+      <div class="cover-content split">
+        <div class="cover-text">
+          <h1>Sudipta &amp; Sananda</h1>
+          <p class="cover-date">9 March 2026</p>
+          <p class="cover-tag">A celebration of love and togetherness</p>
+        </div>
+        <div class="cover-img-frame">
+          <img src="images/IMG_4355.JPG" alt="Sudipta & Sananda" class="cover-img" />
+        </div>
+      </div>
+    </section>
+    <header class="site-header">
+      <h1 style="display:none">Sudipta &amp; Sananda's Wedding Gallery</h1>
+      <p class="subtitle" style="display:none">A celebration of love and togetherness</p>
+    </header>
+
+    <main>
+      <section class="gallery" id="gallery">
+        <!-- Images will be loaded dynamically from images.json -->
+      </section>
+    </main>
+
+    <!-- Lightbox modal -->
+    <div id="modal" class="modal" aria-hidden="true">
+      <button id="close" class="modal-close" aria-label="Close">✕</button>
+      <button id="prev" class="modal-nav" aria-label="Previous">◀</button>
+      <div class="modal-content">
+        <img id="modal-img" src="" alt="">
+        <p id="modal-caption"></p>
+      </div>
+      <button id="next" class="modal-nav" aria-label="Next">▶</button>
+    </div>
+
+    <script src="script.js"></script>
+  </html>
+  </body>
+</html>

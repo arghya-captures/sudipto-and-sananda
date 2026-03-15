@@ -25,18 +25,7 @@
     imgList.forEach((img, i) => {
       const fig = document.createElement('figure');
       fig.className = 'thumb';
-      // Edit button
-      const editBtn = document.createElement('button');
-      editBtn.className = 'edit-btn';
-      editBtn.title = 'Edit this image online';
-      editBtn.innerHTML = `<svg viewBox="0 0 24 24"><path d="M3 17.25V21h3.75l11.06-11.06-3.75-3.75L3 17.25zm14.71-9.04a1.003 1.003 0 0 0 0-1.42l-2.5-2.5a1.003 1.003 0 0 0-1.42 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>`;
-      editBtn.onclick = (e) => {
-        e.stopPropagation();
-        // Open in Photopea with image URL
-        const url = location.origin + '/' + img;
-        window.open(`https://www.photopea.com#${encodeURIComponent(url)}`, '_blank');
-      };
-      // Download button
+      // Download button only
       const downloadBtn = document.createElement('a');
       downloadBtn.className = 'download-btn';
       downloadBtn.title = 'Download this image';
@@ -47,7 +36,6 @@
       // Button container
       const btns = document.createElement('div');
       btns.className = 'thumb-btns';
-      btns.appendChild(editBtn);
       btns.appendChild(downloadBtn);
       fig.appendChild(btns);
       // Image (use thumbnail for preview)

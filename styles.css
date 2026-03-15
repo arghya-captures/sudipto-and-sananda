@@ -146,7 +146,7 @@
   gap: 8px;
   z-index: 2;
 }
-.edit-btn, .download-btn {
+.download-btn {
   background: rgba(255,255,255,0.85);
   border: none;
   border-radius: 50%;
@@ -161,10 +161,10 @@
   padding: 0;
   text-decoration: none;
 }
-.edit-btn:hover, .download-btn:hover {
+.download-btn:hover {
   background: var(--accent2);
 }
-.edit-btn svg, .download-btn svg {
+.download-btn svg {
   width: 20px;
   height: 20px;
   fill: var(--accent);
@@ -172,7 +172,6 @@
 .thumb {
   position: relative;
 }
-.thumb:hover .thumb-btns .edit-btn,
 .thumb:hover .thumb-btns .download-btn {
   display: flex;
 }

@@ -138,10 +138,15 @@
   .cover-img-frame { width: 120px; height: 120px; }
   .cover { min-height: 28vh; padding-top: 1.2rem; padding-bottom: 1.2rem; }
 }
-.edit-btn {
+.thumb-btns {
   position: absolute;
   top: 10px;
   right: 10px;
+  display: flex;
+  gap: 8px;
+  z-index: 2;
+}
+.edit-btn, .download-btn {
   background: rgba(255,255,255,0.85);
   border: none;
   border-radius: 50%;
@@ -152,13 +157,14 @@
   justify-content: center;
   box-shadow: 0 2px 8px rgba(179,0,89,0.10);
   cursor: pointer;
-  z-index: 2;
   transition: background 0.15s;
+  padding: 0;
+  text-decoration: none;
 }
-.edit-btn:hover {
+.edit-btn:hover, .download-btn:hover {
   background: var(--accent2);
 }
-.edit-btn svg {
+.edit-btn svg, .download-btn svg {
   width: 20px;
   height: 20px;
   fill: var(--accent);
@@ -166,7 +172,8 @@
 .thumb {
   position: relative;
 }
-.thumb:hover .edit-btn {
+.thumb:hover .thumb-btns .edit-btn,
+.thumb:hover .thumb-btns .download-btn {
   display: flex;
 }
 .thumb {

@@ -36,7 +36,20 @@
         const url = location.origin + '/' + img;
         window.open(`https://www.photopea.com#${encodeURIComponent(url)}`, '_blank');
       };
-      fig.appendChild(editBtn);
+      // Download button
+      const downloadBtn = document.createElement('a');
+      downloadBtn.className = 'download-btn';
+      downloadBtn.title = 'Download this image';
+      downloadBtn.href = img;
+      downloadBtn.download = img.split('/').pop();
+      downloadBtn.onclick = (e) => { e.stopPropagation(); };
+      downloadBtn.innerHTML = `<svg viewBox="0 0 24 24"><path d="M5 20h14v-2H5v2zm7-18c-.55 0-1 .45-1 1v12.59l-4.3-4.3a.996.996 0 1 0-1.41 1.41l6 6c.39.39 1.02.39 1.41 0l6-6a.996.996 0 1 0-1.41-1.41l-4.3 4.3V3c0-.55-.45-1-1-1z"/></svg>`;
+      // Button container
+      const btns = document.createElement('div');
+      btns.className = 'thumb-btns';
+      btns.appendChild(editBtn);
+      btns.appendChild(downloadBtn);
+      fig.appendChild(btns);
       // Image (use thumbnail for preview)
       const image = document.createElement('img');
       image.src = getThumb(img);

@@ -4,6 +4,7 @@
   const gallery = document.getElementById('gallery');
   const modal = document.getElementById('modal');
   const modalImg = document.getElementById('modal-img');
+  const modalSpinner = document.getElementById('modal-spinner');
   const modalCaption = document.getElementById('modal-caption');
   const closeBtn = document.getElementById('close');
   const prevBtn = document.getElementById('prev');
@@ -48,7 +49,22 @@
 
   function open(index){
     if (!images[index]) return;
-    modalImg.src = images[index]; // full image for modal
+    // Show spinner, hide image
+    if (modalSpinner) modalSpinner.style.display = 'flex';
+    modalImg.style.display = 'none';
+    modalImg.src = '';
+    // Preload image
+    const fullImg = new window.Image();
+    fullImg.onload = function() {
+      modalImg.src = images[index];
+      modalImg.style.display = '';
+      if (modalSpinner) modalSpinner.style.display = 'none';
+    };
+    fullImg.onerror = function() {
+      if (modalSpinner) modalSpinner.style.display = 'none';
+      modalImg.style.display = '';
+    };
+    fullImg.src = images[index];
     modalImg.alt = '';
     if (modalCaption) modalCaption.textContent = '';
     current = index;

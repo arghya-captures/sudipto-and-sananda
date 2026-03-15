@@ -12,6 +12,13 @@
   let images = [];
   let current = -1;
 
+  function getThumb(img) {
+    // Use thumbnail if exists, else fallback to original
+    const parts = img.split('/');
+    const fname = parts[parts.length - 1];
+    return `images/thumbs/${fname}`;
+  }
+
   function renderGallery(imgList) {
     gallery.innerHTML = '';
     imgList.forEach((img, i) => {
@@ -29,9 +36,9 @@
         window.open(`https://www.photopea.com#${encodeURIComponent(url)}`, '_blank');
       };
       fig.appendChild(editBtn);
-      // Image
+      // Image (use thumbnail for preview)
       const image = document.createElement('img');
-      image.src = img;
+      image.src = getThumb(img);
       image.alt = '';
       fig.appendChild(image);
       fig.addEventListener('click', () => open(i));
@@ -41,7 +48,7 @@
 
   function open(index){
     if (!images[index]) return;
-    modalImg.src = images[index];
+    modalImg.src = images[index]; // full image for modal
     modalImg.alt = '';
     if (modalCaption) modalCaption.textContent = '';
     current = index;

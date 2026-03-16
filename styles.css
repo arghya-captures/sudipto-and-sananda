@@ -175,15 +175,6 @@
 .thumb:hover .thumb-btns .download-btn {
   display: flex;
 }
-.thumb {
-  /* create a hover zone in the top right corner only */
-}
-.thumb:hover {
-  /* fallback: show edit button on any hover */
-}
-.thumb {
-  /* pointer-events for children are default */
-}
 
 @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;600&display=swap');
 
@@ -336,10 +327,22 @@ h1 {
     max-width: 98vw;
     max-height: 38vw;
   }
-  .modal-content img {
-    max-width: 98vw;
-    max-height: 48vw;
+  .modal-content {
+    width: calc(100vw - 1rem);
+    max-width: calc(100vw - 1rem);
+    max-height: 88vh;
+    padding: 10px;
   }
+  .modal-content img {
+    max-width: calc(100vw - 2rem);
+    max-height: 78vh;
+  }
+  .modal-nav {
+    font-size: 1.8rem;
+    padding: 6px;
+  }
+  #prev { left: 6px; }
+  #next { right: 6px; }
   h1 {
     font-size: 2.1rem;
   }
